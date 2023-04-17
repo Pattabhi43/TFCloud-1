@@ -1,18 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "= 3.74.2"
-      organization = "AWS_prk"
-      hostname = "app.terraform.io"
-    }
-  }
-
-  workspaces {
-      name = "AWS-ws-1"
-    }
+provider "aws" {
+  region = "ap-south-1"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
-
 
 module "vpc" {
   source      = "./modules/vpc"
